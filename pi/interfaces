@@ -14,6 +14,7 @@ iface wlan0 inet static
 address 192.168.11.99
 netmask 255.255.255.0
 gateway 192.168.11.1
+#wpa-ssid Elv
 wpa-ssid TP-LINK_PocketAP_592062
 wpa-psk 1qazXSW@
 
