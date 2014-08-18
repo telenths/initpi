@@ -1,0 +1,21 @@
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+#iface eth0 inet static
+#address 192.168.11.99
+#netmask 255.255.255.0
+#gateway 192.168.11.1
+
+allow-hotplug wlan0
+#iface wlan0 inet manual
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface wlan0 inet static
+address 192.168.11.99
+netmask 255.255.255.0
+gateway 192.168.11.1
+wpa-ssid TP-LINK_PocketAP_592062
+wpa-psk 1qazXSW@
+
+
+#iface default inet dhcp
