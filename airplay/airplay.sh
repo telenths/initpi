@@ -12,6 +12,6 @@ sudo make install
 
 sudo cp ./scripts/debian/init.d/shairport /etc/init.d/
 sudo cp ./scripts/debian/logrotate.d/shairport /etc/logrotate.d/
-sudo cp ../airplay/default/shairport /etc/default/
+sudo cp ../default/shairport /etc/default/
 
 sudo update-rc.d shairport defaults
