@@ -1,6 +1,7 @@
+set -x
 
 cp ./.bashrc ~/
 chmod 644 ~/.bashrc
-sudo cp ./interface /etc/network/interface
+sudo cp ./interfaces /etc/network/interfaces
 sudo cp ./resolv.conf /etc/resolv.conf
 
