@@ -1,6 +1,6 @@
 sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install libssl-dev libavahi-client-dev libasound2-dev
+sudo apt-get -y upgrade
+sudo apt-get -y install libssl-dev libavahi-client-dev libasound2-dev
 
 git clone -b 1.0-dev git://github.com/abrasive/shairport.git
 cd shairport
