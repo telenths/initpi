@@ -10,6 +10,7 @@ sudo ./configure
 sudo make
 sudo make install
 
-sudo cp ./script/debian/init.d/shairport /etc/init.d/
-sudo cp ./script/debian/logrotate.d/hairport /etc/logrotate.d/
+sudo useradd -g audio shairport
+sudo cp ./scripts/debian/init.d/shairport /etc/init.d/
+sudo cp ./scripts/debian/logrotate.d/shairport /etc/logrotate.d/
 sudo cp ../airplay/default/shairport /etc/default/
