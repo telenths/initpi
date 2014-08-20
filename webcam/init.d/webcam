@@ -1,0 +1,22 @@
+#! /bin/sh
+# /etc/init.d/webcam
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "Starting webcam script"
+    export LD_LIBRARY_PATH=/home/pi/webcam/mjpg-streamer-r63
+    /home/pi/webcam/mjpg-streamer-r63/mjpg_streamer -o "output_http.so -w /home/pi/webcam/mjpg-streamer-r63/www" &
+    ;;
+  stop)
+    echo "Stopping webcam script"
+    killall mjpg_streamer
+    ;;
+  *)
+    echo "Usage: /etc/init.d/webcam {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
+
