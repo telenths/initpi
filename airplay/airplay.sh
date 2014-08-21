@@ -1,7 +1,5 @@
 set -x
 
-sudo apt-get update
-sudo apt-get -y upgrade
 sudo apt-get -y install libssl-dev libavahi-client-dev libasound2-dev
 
 git clone git://github.com/abrasive/shairport.git
