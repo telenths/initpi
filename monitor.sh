@@ -5,12 +5,11 @@ set -x
 DATE=`date "+%Y-%m-%dT%H:%M:%S"`
 CPU_TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
 CPU_TEMP=`echo "$CPU_TEMP" | awk '{printf "%f", $1 /1000}'`
-CPU_USAGE=`top -n 1 | awk '/Cpu\(s\):/ {print $2}'`
+CPU_USAGE=`top c n 1 b | awk '/Cpu\(s\):/ {print $2}'`
 GPU_TEMP=`/opt/vc/bin/vcgencmd measure_temp | sed 's/^.*=//' | sed 's/.C//'`
 MEM_USED=`free | awk '/Mem:/ {print $3}'`
 MEM_TOTAL=`free | awk '/Mem:/ {print $2}'`
 MEM_USAGE=`echo "$MEM_USED $MEM_TOTAL" | awk '{printf "%f", $1 / $2 * 100}'`
-
 
 function makeJsonData(){
   VALUE=$1
