@@ -7,7 +7,7 @@ CPU_USAGE=`top -n1 | awk '/Cpu\(s\):/ {print $2}'`
 GPU_TEMP=`/opt/vc/bin/vcgencmd measure_temp | sed 's/^.*=//' | sed 's/.C//'`
 MEM_USED=`free | awk '/Mem:/ {print $3}'`
 MEM_TOTAL=`free | awk '/Mem:/ {print $2}'`
-MEM_USAGE=`echo "$MEM_USED $MEM_TOTAL" | awk '{printf "%f", $1 / $2}'`
+MEM_USAGE=`echo "$MEM_USED $MEM_TOTAL" | awk '{printf "%f", $1 / $2 * 100}'`
 
 
 function makeJsonData(){
