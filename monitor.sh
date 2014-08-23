@@ -3,6 +3,7 @@ set -x
 
 DATE=`date "+%Y-%m-%dT%H:%M:%S"`
 CPU_TEMP=`cat /sys/class/thermal/thermal_zone0/temp`
+CPU_TEMP=`echo "$CPU_TEMP" | awk '{printf "%f", $1 /1000}'`
 CPU_USAGE=`top -n1 | awk '/Cpu\(s\):/ {print $2}'`
 GPU_TEMP=`/opt/vc/bin/vcgencmd measure_temp | sed 's/^.*=//' | sed 's/.C//'`
 MEM_USED=`free | awk '/Mem:/ {print $3}'`
