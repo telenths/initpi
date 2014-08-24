@@ -2,7 +2,7 @@ set -x
 
 sudo apt-get -y install libjpeg8-dev
 
-PWD=`pwd`
+CAM_HOME=`pwd`
 
 mkdir ~/webcam
 cd ~/webcam
@@ -12,7 +12,7 @@ cd mjpg-streamer-r63
 sudo ln -s /usr/include/linux/videodev2.h /usr/include/linux/videodev.h
 make clean all
 
-cd $PWD
+cd $CAM_HOME 
 sudo cp ./init.d/webcam /etc/init.d/webcam
 sudo chmod +x /etc/init.d/webcam
 sudo update-rc.d webcam defaults

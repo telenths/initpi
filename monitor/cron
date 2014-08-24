@@ -3,10 +3,13 @@
 set -x
 
 LOGS_DIR=/home/pi/logs
+MONITOR_DIR=/home/pi/monitor
 
 [ -d $LOGS_DIR ] || mkdir $LOGS_DIR
 
-cd /home/pi/initpi/monitor
-./monitor.sh >> $LOGS_DIR/monitor.log
+cp /home/pi/initpi/monitor/* $MONITOR_DIR/
+
+cd $MONITOR_DIR
+./monitor.sh >> $LOGS_DIR/monitor.log 2>&1
 #>/dev/null 2>&1
 
