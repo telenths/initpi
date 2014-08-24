@@ -2,6 +2,11 @@
 
 set -x
 
-cd ~/monitor
-./monitor.sh >> log
+LOGS_DIR=/home/pi/logs
+
+[ -d $LOGS_DIR ] || mkdir $LOGS_DIR
+
+cd /home/pi/initpi/monitor
+./monitor.sh >> $LOGS_DIR/monitor.log
+#>/dev/null 2>&1
 
