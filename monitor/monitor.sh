@@ -44,7 +44,7 @@ if [ $VALUE = 1 ]; then
         echo "camming"
 	sudo service webcam start
 	[ -d capture ] || mkdir capture
-        for i in $(seq 1 10)
+        for i in $(seq 1 5)
         do
 	    NOW=`date "+%Y%m%d%H%M%S"`
 wget -O capture/a.$NOW.jpeg "http://192.168.11.99:8080/?action=snapshot"
