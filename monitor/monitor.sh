@@ -44,13 +44,13 @@ if [ $VALUE = 1 ]; then
         echo "camming"
 	sudo service webcam start
 	[ -d capture ] || mkdir capture
-        for i in $(seq 1 5)
+        for i in $(seq 1 10)
         do
 	    NOW=`date "+%Y%m%d%H%M%S"`
 wget -O capture/a.$NOW.jpeg "http://192.168.11.99:8080/?action=snapshot"
-curl --request POST --data-binary @capture/a.$NOW.jpeg  --header "U-ApiKey:28c97668105f6211667d35a4d1cecefe" http://api.yeelink.net/v1.1/device/13595/sensor/22616/photos
+#curl --request POST --data-binary @capture/a.$NOW.jpeg  --header "U-ApiKey:28c97668105f6211667d35a4d1cecefe" http://api.yeelink.net/v1.1/device/13595/sensor/22616/photos
 
-                sleep 11 
+            sleep 5 
         done
 else
 	[ -d capture ] && python sendmail.py
