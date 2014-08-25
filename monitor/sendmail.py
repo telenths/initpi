@@ -29,12 +29,12 @@ Contents = MIMEText(htmlbody,'html')
 msg.attach(Contents)
 
 
-for filename in sorted(os.listdir("./capture")):
-  print(filename)
-  if filename.startswith("a") and filename.endswith(".jpeg"):
-    att = MIMEImage(file('./capture/'+filename, 'rb').read(), _subtype="jpeg")
+for imgfilename in sorted(os.listdir("./capture")):
+  print(imgfilename)
+  if imgfilename.startswith("a") and imgfilename.endswith(".jpeg"):
+    att = MIMEImage(file('./capture/'+imgfilename, 'rb').read(), _subtype="jpeg")
     att["Content-Type"] = 'application/octet-stream'
-    att.add_header('content-disposition','attachment',filename=imgfiles)
+    att.add_header('content-disposition','attachment',filename=imgfilename)
     msg.attach(att)
 
 #att = MIMEText(open(r'./a.jpg','rb').read(),'base64','gb2312')
