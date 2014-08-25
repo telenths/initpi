@@ -8,7 +8,8 @@ import datetime
 
 
 sender = 'rasberrypi@163.com'
-mailto = 'shangshang143.b1530f7@m.yinxiang.com '
+#mailto = 'shangshang143.b1530f7@m.yinxiang.com'
+mailto = 'link93meder+public@up.yupoo.com'
 imgfiles = 'a.jpeg'
 
 username = 'rasberrypi'
