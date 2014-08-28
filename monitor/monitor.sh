@@ -11,6 +11,10 @@ MEM_USED=`free | awk '/Mem:/ {print $3}'`
 MEM_TOTAL=`free | awk '/Mem:/ {print $2}'`
 MEM_USAGE=`echo "$MEM_USED $MEM_TOTAL" | awk '{printf "%f", $1 / $2 * 100}'`
 
+TEMP_NAME=28-00000635ff84
+ROOM_TEMP=`cat /sys/bus/w1/devices/$TEMP_NAME/w1_slave | grep -A 1 YES | grep t= | sed 's/^.*t=//'`
+ROOM_TEMP=`echo "$ROOM_TEMP" | awk '{printf "%f", $1 / 1000}'`
+
 
 JSON_BODY=""
 function makeJsonData(){
@@ -34,8 +38,13 @@ makeJsonData $MEM_USAGE
 echo $JSON_BODY
 curl --request POST --data-binary $JSON_BODY --header "U-ApiKey:28c97668105f6211667d35a4d1cecefe" http://api.yeelink.net/v1.1/device/13595/sensor/22581/datapoints
 
-SWITCH=`curl --request GET --header "U-ApiKey:28c97668105f6211667d35a4d1cecefe" http://api.yeelink.net/v1.1/device/13595/sensor/22512/datapoints`
+makeJsonData $ROOM_TEMP
+echo $JSON_BODY
+curl --request POST --data-binary $JSON_BODY --header "U-ApiKey:28c97668105f6211667d35a4d1cecefe" http://api.yeelink.net/v1.1/device/13595/sensor/22841/datapoints
 
+
+
+SWITCH=`curl --request GET --header "U-ApiKey:28c97668105f6211667d35a4d1cecefe" http://api.yeelink.net/v1.1/device/13595/sensor/22512/datapoints`
 VALUE=`echo $SWITCH | sed 's/^.*value\"://g' | sed 's/,.*$//'`
 echo $SWITCH $VALUE
 
