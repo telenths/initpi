@@ -2,4 +2,5 @@
 
 cd /home/pi/initpi
 git pull
+rm /home/pi/logs/*.log
 
